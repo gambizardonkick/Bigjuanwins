@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BigJuanWins</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Exclusive wager races on Rainbet for code JUAN!" />
+    <meta name="theme-color" content="#006847" />
+
+    <meta property="og:title" content="BigJuanWins — Exclusive Leaderboards" />
+    <meta property="og:description" content="Join our Rainbet leaderboards. Use code: JUAN." />
+    <meta property="og:image" content="https://placehold.co/1200x630/006847/ffffff?text=BigJuanWins" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://files.kick.com/images/user/18409977/profile_image/conversion/199949e4-7eda-4856-add6-e7a391a254b5-fullsize.webp" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://files.kick.com/images/user/18409977/profile_image/conversion/199949e4-7eda-4856-add6-e7a391a254b5-fullsize.webp" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://files.kick.com/images/user/18409977/profile_image/conversion/199949e4-7eda-4856-add6-e7a391a254b5-fullsize.webp" />
+    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22BigJuanWins%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fplacehold.co%2F192x192%2FCE1126%2FFFFFF%3Ftext%3DR%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22https%3A%2F%2Fplacehold.co%2F512x512%2F006847%2FFFFFF%3Ftext%3DR%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Alfa+Slab+One&family=Luckiest+Guy&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --mx-green: #006847;
+            /* Mexican flag green */
+            --mx-white: #ffffff;
+            --mx-red: #CE1126;
+            /* Mexican flag red */
+            --mx-gold: #FFC107;
+            --mx-brown: #7A4F2A;
+            --sand: #F8E9D2;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--sand);
+            color: #2b2b2b;
+            overflow-x: hidden;
+            position: relative;
+            /* Added for absolute positioning of new elements like tortillas and piñatas */
+        }
+
+        /* Papel picado banner (SVG background) */
+        .papel-banner {
+            position: relative;
+            background: radial-gradient(40px 10px at 8% 120%, var(--mx-green) 20%, transparent 21%) 0 0/120px 60px repeat-x,
+                radial-gradient(40px 10px at 58% 120%, var(--mx-red) 20%, transparent 21%) 60px 0/120px 60px repeat-x,
+                linear-gradient(90deg, var(--mx-green), var(--mx-white), var(--mx-red));
+            height: 64px;
+            box-shadow: inset 0 -6px 0 rgba(0, 0, 0, .08);
+        }
+
+        /* Serape accent stripe */
+        .serape {
+            background: linear-gradient(90deg,
+                    #006847 0%, #3FAE76 10%, #F5F5F5 20%, #CE1126 30%, #F5F5F5 40%, #006847 50%,
+                    #F5F5F5 60%, #CE1126 70%, #F5F5F5 80%, #3FAE76 90%, #006847 100%);
+            height: 6px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(160deg, var(--mx-green), #0d8a5e);
+        }
+
+        /* Brand title using Alfa Slab One for boldness */
+        .brand-title {
+            font-family: 'Alfa Slab One', cursive;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+        }
+
+        /* New font 'Luckiest Guy' for main headings for a festive Mexican feel */
+        h2,
+        h3 {
+            font-family: 'Luckiest Guy', cursive;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, .1);
+        }
+
+        /* Card polish */
+        .pro-card {
+            border: 1px solid rgba(0, 0, 0, .06);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+        }
+
+        .pro-card:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .12);
+        }
+
+        /* CTA buttons */
+        .btn-gold {
+            background: var(--mx-gold);
+            color: #3b2f0c;
+        }
+
+        .btn-gold:hover {
+            filter: brightness(1.05);
+        }
+
+        .btn-green {
+            background: var(--mx-green);
+            color: white;
+        }
+
+        .btn-green:hover {
+            filter: brightness(1.05);
+        }
+
+        /* Floating animations for coins and new elements */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(10deg)
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(10deg)
+            }
+
+            100% {
+                transform: translateY(0) rotate(10deg)
+            }
+        }
+
+        @keyframes floatL {
+            0% {
+                transform: translateY(0) scaleX(-1) rotate(10deg)
+            }
+
+            50% {
+                transform: translateY(-12px) scaleX(-1) rotate(10deg)
+            }
+
+            100% {
+                transform: translateY(0) scaleX(-1) rotate(10deg)
+            }
+        }
+
+        /* Added spin animation for tortillas */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Added bounce animation for piñatas */
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-30px);
+            }
+
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .coin-left {
+            animation: floatL 4s ease-in-out infinite;
+        }
+
+        .coin-right {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Styles for floating tortillas */
+        .tortilla {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.7;
+            /* Combine spin and float for a dynamic effect */
+            animation: spin 10s linear infinite, float 5s ease-in-out infinite;
+        }
+
+        /* Styles for floating piñatas */
+        .pinata {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.8;
+            animation: bounce 6s ease-in-out infinite;
+            /* Piñatas will bounce gently */
+        }
+
+        /* Used to delay animations for variety */
+        .animation-delay-1500 {
+            animation-delay: 1.5s;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-3000 {
+            animation-delay: 3s;
+        }
+
+
+        /* --- FIX: Stream player sizing & responsiveness --- */
+        .draggable {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            width: clamp(280px, 40vw, 420px);
+            border: 3px solid var(--mx-red, #CE1126);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .18);
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 1000;
+            transform: translate3d(0, 0, 0);
+            /* prevents blur while dragging */
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            background: var(--mx-brown, #7A4F2A);
+            color: var(--mx-gold, #FFC107);
+            padding: 8px 10px;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .player-body {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            /* keeps perfect video ratio */
+            background: #000;
+            /* nice letterbox before load */
+        }
+
+        .player-body iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Mobile placement */
+        @media (max-width: 570px) {
+            .draggable {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                width: min(92vw, 420px);
+            }
+        }
+
+        /* --- FIX: $800 card overlay & stacking --- */
+        .lb-card {
+            position: relative;
+            display: inline-block;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, .08);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+        }
+
+        .lb-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .lb-badge {
+            position: absolute;
+            left: 50%;
+            bottom: 14px;
+            transform: translateX(-50%);
+            z-index: 2;
+            background: #006847;
+            /* green */
+            color: #fff;
+            border: 2px solid #FFC107;
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+        }
+
+        /* Background glows */
+        .glow-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1
+        }
+
+        .left-glow,
+        .right-glow {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            filter: blur(140px);
+            opacity: .45;
+            border-radius: 50%
+        }
+
+        .left-glow {
+            top: -120px;
+            left: -120px;
+            background: var(--mx-red)
+        }
+
+        .right-glow {
+            bottom: -120px;
+            right: -120px;
+            background: var(--mx-green)
+        }
+
+        #particleCanvas {
+            position: fixed;
+            inset: 0;
+            z-index: -2
+        }
+
+        /* Responsive typography */
+        h2 {
+            font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 2.1vw, 2rem);
+        }
+
+        @media (max-width: 1366px) {
+            section.text-center {
+                margin-bottom: 2rem;
+            }
+
+            .social-chip {
+                padding: 10px 14px;
+            }
+        }
+
+        #particleCanvas {
+            pointer-events: none;
+        }
+
+        @media (max-width: 1366px) {
+            .draggable {
+                bottom: 12px;
+                right: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .coin-left,
+            .coin-right,
+            .tortilla,
+            .pinata {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div class="papel-banner"></div>
+    <div class="serape"></div>
+
+    <div id="toast" class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-[var(--mx-red)] text-white px-6 py-3 rounded-xl shadow-lg z-50 transition-opacity duration-300 opacity-0 hidden">
+        <span id="message"></span>
+    </div>
+
+    <div id="draggable-player" class="draggable">
+        <div id="controls" class="controls">
+            <div id="drag-handle" class="text-xl font-extrabold">
+                <i class="fa-solid fa-grip-lines"></i>
+            </div>
+            <button id="close-btn" class="ml-auto text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="player-body">
+            <iframe src="https://player.kick.com/BigJuanWins" allow="autoplay; fullscreen" allowfullscreen title="BigJuanWins stream">
+            </iframe>
+        </div>
+    </div>
+    <button id="open-btn" class="hidden fixed bottom-4 right-4 w-14 h-14 rounded-full bg-[#7A4F2A] text-[#FFC107] text-3xl z-[1001] shadow-lg">
+        <i class="fa-solid fa-video"></i>
+    </button>
+
+    <canvas id="particleCanvas"></canvas>
+    <div class="glow-container">
+        <div class="left-glow"></div>
+        <div class="right-glow"></div>
+    </div>
+
+    <div class="relative h-0 z-[-1]">
+        <img src="https://placehold.co/120x120/FFC107/7A4F2A?text=$" alt="Coin Left" class="coin-left absolute top-[-60px] left-[15%] opacity-60 rounded-full">
+        <img src="https://placehold.co/120x120/FFC107/7A4F2A?text=$" alt="Coin Right" class="coin-right absolute top-[-60px] right-[15%] opacity-60 rounded-full">
+    </div>
+
+    <img src="https://i.ibb.co/x85dDjfw/image-removebg-preview-61-2.png" alt="Tortilla" class="tortilla top-1/4 left-[5%] rotate-12">
+    <img src="https://i.ibb.co/x85dDjfw/image-removebg-preview-61-2.png" alt="Tortilla" class="tortilla bottom-1/4 right-[8%] -rotate-6 animation-delay-2000">
+    <img src="https://i.ibb.co/x85dDjfw/image-removebg-preview-61-2.png" alt="Tortilla" class="tortilla top-[25%] right-[8%] rotate-8 animation-delay-3000">
+    <img src="https://i.ibb.co/JRBkVMq9/image-removebg-preview-62.png" alt="Piñata" class="pinata top-[15%] left-[25%] rotate-3">
+    <img src="https://i.ibb.co/JRBkVMq9/image-removebg-preview-62.png" alt="Piñata" class="pinata bottom-[25%] left-[5%] -rotate-1 animation-delay-1500">
+    <img src="https://i.ibb.co/JRBkVMq9/image-removebg-preview-62.png" alt="Piñata" class="pinata top-[15%] right-[25%] rotate-8 animation-delay-3000">
+
+
+    <header class="shadow-lg rounded-b-xl mb-8">
+        <nav class="container mx-auto max-w-6xl px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-3 mb-4 md:mb-0">
+                <img src="https://files.kick.com/images/user/18409977/profile_image/conversion/199949e4-7eda-4856-add6-e7a391a254b5-fullsize.webp" alt="BigJuanWins Logo" class="w-16 h-16 rounded-full ring-2 ring-white/70" />
+                <h1 class="brand-title text-white text-4xl">BigJuanWins</h1>
+            </div>
+            <ul class="flex items-center gap-6">
+                <li>
+                    <a href="/leaderboard/rainbet" class="text-white font-semibold uppercase tracking-wide hover:text-[var(--mx-gold)]">
+                        Rainbet  -   
+                    </a>
+                    <a href="/leaderboard/upgrader" class="text-blue font-semibold uppercase tracking-wide hover:text-[var(--mx-gold)]">
+                        -  Upgrader
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+        <section class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-[#CE1126] tracking-wide uppercase">
+                Join the Leaderboard
+            </h2>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="/leaderboard/rainbet" class="lb-card transition-transform duration-200 hover:-translate-y-1" style="width:min(90vw, 360px); background:#006847;">
+                    <img src="https://i.postimg.cc/15jtLV6z/rainbet1.png" alt="Rainbet Logo" style="cursor:pointer; display:block; margin:0 auto; max-width:70%; height:auto; padding:20px;" />
+                    <div class="lb-badge">$5,000</div>
+                </a>
+                <a href="/leaderboard/upgrader" class="lb-card transition-transform duration-200 hover:-translate-y-1" style="width:min(90vw, 360px); background:#006847;">
+                    <img src="https://i.ibb.co/tPBg0HdL/image.png" alt="Upgrader Logo" style="cursor:pointer; display:block; margin:0 auto; max-width:70%; height:auto; padding:20px;" />
+                    <div class="lb-badge">$500</div>
+                </a>
+            </div>
+        </section>
+
+        <section class="flex justify-center mb-14">
+            <div class="block w-full max-w-xl rounded-2xl pro-card p-8 bg-white cursor-pointer" onclick="window.location.href='https://rainbet.com/?r=JUAN'">
+                <div class="flex flex-col items-center">
+                    <div class="mb-5 bg-[#CE1126] p-4 rounded-xl shadow-lg">
+                        <img src="https://i.postimg.cc/15jtLV6z/rainbet1.png" alt="Rainbet Icon" class="mx-auto max-h-20" />
+                    </div>
+                    <div class="flex items-center gap-3 mb-4 text-3xl font-extrabold">
+                        <i class="fa-solid fa-angles-left text-[var(--mx-green)]"></i>
+                        <span>Code</span>
+                        <span class="text-[var(--mx-red)] uppercase">JUAN</span>
+                        <i class="fa-solid fa-angles-right text-[var(--mx-green)]"></i>
+                    </div>
+                    <ul class="grid sm:grid-cols-2 gap-3 text-gray-800 mb-6">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-[var(--mx-green)]"></i> Unlock Exclusive Rewards
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-[var(--mx-green)]"></i> Monthly Leaderboards
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="https://rainbet.com/?r=JUAN" class="btn-gold font-bold py-3 px-8 rounded-full shadow inline-block">
+                            Sign Up Now
+                        </a>
+                        <a href="/leaderboard/rainbet" class="btn-green font-bold py-3 px-8 rounded-full shadow inline-block">
+                            View Leaderboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex justify-center mb-14">
+            <div class="block w-full max-w-xl rounded-2xl pro-card p-8 bg-white cursor-pointer" onclick="window.location.href='https://upgrader.com/r/JUAN'">
+                <div class="flex flex-col items-center">
+                    <div class="mb-5 bg-[#CE1126] p-4 rounded-xl shadow-lg">
+                        <img src="https://i.ibb.co/tPBg0HdL/image.png" alt="Upgrader Icon" class="mx-auto max-h-20" />
+                    </div>
+                    <div class="flex items-center gap-3 mb-4 text-3xl font-extrabold">
+                        <i class="fa-solid fa-angles-left text-[var(--mx-green)]"></i>
+                        <span>Code</span>
+                        <span class="text-[var(--mx-red)] uppercase">JUAN</span>
+                        <i class="fa-solid fa-angles-right text-[var(--mx-green)]"></i>
+                    </div>
+                    <ul class="grid sm:grid-cols-2 gap-3 text-gray-800 mb-6">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-[var(--mx-green)]"></i> Unlock Exclusive Rewards
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-[var(--mx-green)]"></i> Monthly Leaderboards
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="https://upgrader.com/r/JUAN" class="btn-gold font-bold py-3 px-8 rounded-full shadow inline-block">
+                            Sign Up Now
+                        </a>
+                        <a href="/leaderboard/upgrader" class="btn-green font-bold py-3 px-8 rounded-full shadow inline-block">
+                            View Leaderboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mb-16 text-center">
+            <h3 class="text-3xl md:text-4xl font-extrabold mb-6 text-[var(--mx-green)] uppercase">Connect with us</h3>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://kick.com/BigJuanWins" target="_blank" class="social-chip flex items-center gap-3 bg-[#53FC18] text-black py-3 px-5 rounded-xl">
+                    <i class="fa-solid fa-k icon text-xl"></i>
+                    <span>@BigJuanWins on Kick</span>
+                    <link rel="icon" href="https://kick.com/favicon.ico" />
+                </a>
+
+                <a href="https://www.youtube.com/@BigJuanLive" target="_blank" class="social-chip flex items-center gap-3 bg-[#FF0000] text-white py-3 px-5 rounded-xl">
+                    <i class="fa-brands fa-youtube text-xl"></i>
+                    <span>@BigJuanLive on Youtube</span>
+                    <link rel="icon" href="https://www.youtube.com/favicon.ico" />
+                </a>
+
+                <a href="https://www.instagram.com/bigjuangana" target="_blank" class="social-chip flex items-center gap-3 bg-gradient-to-r from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white py-3 px-5 rounded-xl">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                    <span>@BigJuangana on Instagram</span>
+                    <link rel="icon" href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" />
+                </a>
+
+                <a href="https://discord.gg/zgCBHr95yq" target="_blank" class="social-chip flex items-center gap-3 bg-[#5865F2] text-white py-3 px-5 rounded-xl">
+                    <i class="fa-brands fa-discord text-xl"></i>
+                    <span>Join our Discord</span>
+                    <link rel="icon" href="https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico" />
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rounded-t-xl py-10 px-4 text-white shadow-inner" style="background:linear-gradient(160deg,#0d8a5e,var(--mx-green))">
+        <div class="container mx-auto max-w-6xl grid md:grid-cols-3 gap-8 items-start">
+            <div>
+                <p class="text-2xl font-extrabold mb-2">BigJuanWins</p>
+                <p class="text-sm opacity-90">All Rights Reserved 2025.</p>
+            </div>
+
+            <div>
+                <span class="text-xl font-extrabold mb-3 block">Connect</span>
+                <div class="flex flex-col gap-3">
+                    <a class="hover:text-[var(--mx-gold)] flex items-center gap-3" href="https://kick.com/BigJuanWins" target="_blank">
+                        <i class="fa-solid fa-k"></i> Kick
+                    </a>
+                    <a class="hover:text-[var(--mx-gold)] flex items-center gap-3" href="https://www.youtube.com/@BigJuanLive" target="_blank">
+                        <i class="fa-brands fa-youtube"></i> Youtube
+                    </a>
+                    <a class="hover:text-[var(--mx-gold)] flex items-center gap-3" href="https://www.instagram.com/bigjuangana" target="_blank">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a class="hover:text-[var(--mx-gold)] flex items-center gap-3" href="https://discord.gg/zgCBHr95yq" target="_blank">
+                        <i class="fa-brands fa-discord"></i> Discord
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <span class="text-xl font-extrabold mb-3 block">BeGambleAware.com</span>
+                <p class="text-xs leading-relaxed opacity-90">
+                    Gambling involves risk. Set limits, play responsibly, and seek help if needed. We are not responsible for losses or damages.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" crossorigin="anonymous" data-cf-beacon='{"token":"6a289e34095c4e319f5a765107c772ad"}'></script>
+
+    <script>
+        function showToast(message, duration = 3000) {
+            const t = document.getElementById('toast');
+            document.getElementById('message').textContent = message;
+            t.classList.remove('hidden', 'opacity-0');
+            t.classList.add('opacity-100');
+            setTimeout(() => {
+                t.classList.remove('opacity-100');
+                t.classList.add('opacity-0');
+                setTimeout(() => t.classList.add('hidden'), 300);
+            }, duration);
+        }
+
+        window.onload = function() {
+            const player = document.getElementById('draggable-player');
+            const dragHandle = document.getElementById('drag-handle');
+            const closeBtn = document.getElementById('close-btn');
+            const openBtn = document.getElementById('open-btn');
+
+            let isDragging = false,
+                currentX = 0,
+                currentY = 0,
+                initialX = 0,
+                initialY = 0,
+                xOffset = 0,
+                yOffset = 0;
+
+            function setTranslate(x, y, el) {
+                el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            }
+
+            function dragStart(e) {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+                isDragging = true;
+            }
+
+            document.addEventListener('mouseup', dragEnd);
+            document.addEventListener('mousemove', drag);
+            dragHandle.addEventListener('mousedown', dragStart);
+            closeBtn.addEventListener('click', closePlayer);
+            openBtn.addEventListener('click', openPlayer);
+
+            function dragEnd() {
+                initialX = currentX;
+                initialY = currentY;
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+                setTranslate(currentX, currentY, player);
+            }
+
+            function closePlayer() {
+                player.style.display = 'none';
+                openBtn.classList.remove('hidden'); // Show the minimized icon
+            }
+
+            function openPlayer() {
+                player.style.display = 'block';
+                openBtn.classList.add('hidden'); // Hide the minimized icon
+            }
+
+            // Particles
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            const colors = ['#CE1126', '#006847', '#F5F5F5', '#FFC107'];
+            let particles = [];
+
+            function resize() {
+                canvas.width = innerWidth;
+                canvas.height = innerHeight;
+            }
+
+            function Particle(x, y, r, c, vx, vy) {
+                this.x = x;
+                this.y = y;
+                this.r = r;
+                this.c = c;
+                this.vx = vx;
+                this.vy = vy;
+            }
+            Particle.prototype.draw = function() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = this.c;
+                ctx.fill();
+            };
+            Particle.prototype.update = function() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x - this.r > canvas.width) this.x = -this.r;
+                if (this.y - this.r > canvas.height) this.y = -this.r;
+                if (this.x + this.r < 0) this.x = canvas.width + this.r;
+                if (this.y + this.r < 0) this.y = canvas.height + this.r;
+            };
+
+            function init() {
+                particles = [];
+                const n = Math.floor((canvas.width * canvas.height) / 18000);
+                for (let i = 0; i < n; i++) {
+                    particles.push(new Particle(
+                        Math.random() * canvas.width, Math.random() * canvas.height,
+                        Math.random() * 3 + 1, colors[Math.floor(Math.random() * colors.length)],
+                        (Math.random() - .5) * .4, (Math.random() - .5) * .4
+                    ));
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+            }
+            resize();
+            init();
+            animate();
+            window.addEventListener('resize', () => {
+                resize();
+                init();
+            });
+        };
+    </script>
+</body>
+
+</html>
